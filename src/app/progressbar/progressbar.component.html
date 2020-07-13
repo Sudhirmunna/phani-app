@@ -1,0 +1,4 @@
+
+<div class="pb-container" *ngFor="let pb of finalData">
+    <p><ngb-progressbar [type]=setType(pb) [value]="pb?.percentageComplete"></ngb-progressbar></p>
+</div>
