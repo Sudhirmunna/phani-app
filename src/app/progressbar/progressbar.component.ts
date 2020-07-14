@@ -26,13 +26,13 @@ finalData: any;
   ngOnInit(): void {
   }
   updateProgressBar(data: any ) {
-    console.log(Object.values(data));
+    // console.log(Object.values(data));
     this.finalData = Object.values(data);
 
   }
 
   setType(pb: any) {
-    console.log(pb);
+    // console.log(pb);
 
     // TODO: based on the value can update the progress bar type/color
     // tslint:disable-next-line:no-string-literal

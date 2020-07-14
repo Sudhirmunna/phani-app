@@ -44,7 +44,8 @@ updateForm(value) {
       console.log(x);
       const item = this.formBuilder.group({
         name: x.name,
-        env: x.env
+        env: x.env,
+        edit: false
       });
       this.items.push(item);
     });
@@ -55,6 +56,7 @@ createItem(): FormGroup {
   return this.formBuilder.group({
     name: '',
     env: '',
+    edit: true
   });
 }
 addItem(): void {
@@ -62,8 +64,27 @@ addItem(): void {
   this.items.push(this.createItem());
 }
 
+editItem(i) {
+  const editValue = ((this.orderForm.get('items') as FormArray).controls[i] as FormGroup).controls.edit.value;
+  console.log(editValue);
+  ((this.orderForm.get('items') as FormArray).controls[i] as FormGroup).controls.edit.setValue(!editValue);
+}
+
+canEdit(i) {
+  const editValue = ((this.orderForm.get('items') as FormArray).controls[i] as FormGroup).controls.edit.value;
+  return editValue;
+}
+
+getPanelData(i) {
+  const nameValue = ((this.orderForm.get('items') as FormArray).controls[i] as FormGroup).controls.name.value;
+  const envValue = ((this.orderForm.get('items') as FormArray).controls[i] as FormGroup).controls.env.value;
+  const editValue = ((this.orderForm.get('items') as FormArray).controls[i] as FormGroup).controls.edit.value;
+  const temp = { name: nameValue, env: envValue, edit: editValue};
+  return temp;
+}
+
 save(orderForm) {
-  console.log(orderForm);
+  // console.log(orderForm);
 }
 
 getArrayControls() {
