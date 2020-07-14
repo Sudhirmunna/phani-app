@@ -1,0 +1,28 @@
+<!-- 
+<form [formGroup]="myForm" ((ngSubmit)="save(myForm)">
+    <div class="card" style="width: 50rem;" *ngFor="let panel of panelData">
+        <div class="card-body">
+          <h5 class="card-title">{{panel?.env}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{panel?.name}}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      
+</form>
+
+   -->
+
+   <form [formGroup]="orderForm" novalidate (ngSubmit)="save(orderForm)">
+    <h3>Items</h3> <button (click)="addItem()">Add Item</button>
+
+    <div class="card" style="padding: 5rem;"style="width: 50rem;" formArrayName="items"
+    *ngFor="let item of getArrayControls(); let i = index;">
+    <div class="card-body" [formGroupName]="i">
+      <input style="margin: 1rem;" formControlName="name" placeholder="name">
+      <input style="margin: 1rem;" formControlName="env" placeholder="env description">
+    </div>
+  
+  </div>
+  </form>
+
+  

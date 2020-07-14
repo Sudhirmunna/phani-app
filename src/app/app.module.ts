@@ -5,15 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProgressbarComponent } from './progressbar/progressbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PanelComponent } from './panel/panel.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProgressbarComponent
+    ProgressbarComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     NgbModule
   ],
   providers: [],

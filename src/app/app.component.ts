@@ -12,6 +12,9 @@ export class AppComponent implements OnInit {
   responseStep1: any;
   responseStep4: any;
 
+
+  panelData: any;
+
   ngOnInit() {
       // Initial data
 
@@ -109,6 +112,29 @@ export class AppComponent implements OnInit {
         setTimeout(this.getUpdatedStatus, 6000);
       }
     });
+
+  // Initial panel data
+
+  // tslint:disable-next-line:align
+  this.panelData = [
+    {
+      env: 'dev',
+      name: 'dev desc'
+    },
+    {
+      env: 'test',
+      name: 'test desc'
+    },
+    {
+      env: 'acpt',
+      name: 'acpt desc'
+    },
+    {
+      env: 'prod',
+      name: 'prod desc'
+    }
+  ];
+
   }
 
   getUpdatedStatus() {
